@@ -11,13 +11,13 @@ var bio = {
 	"skills":[
 		"Self-learning","Fast learner","Hard working"
 	],
-	"bioPic": "images/pp.jpg",
+	"biopic": "images/pp.jpg",
 	"display": function(){
 	var Name = HTMLheaderName.replace("%data%",bio['name']);
 	$("#header").append(Name);
 	var Role = HTMLheaderRole.replace("%data%",bio.role);
 	$("#header").append(Role);
-	var pic = HTMLbioPic.replace("%data%",bio.bioPic);
+	var pic = HTMLbioPic.replace("%data%",bio.biopic);
 	$("#header").append(pic);
 	var c = HTMLcontactGeneric.replace("%contact%","Mobile").replace("%data%",bio.contacts.mobile);
 	c += HTMLcontactGeneric.replace("%contact%","Email").replace("%data%",bio.contacts.email);
@@ -40,8 +40,8 @@ var education = {
 			"name": "Faculty of Engineering, Alexandria University",
 			"location": "Alexandria",
 			"degree":"BA",
-			"major":"Civil Engineering",
-			"dates":"2013 - Present",
+			"major":["Civil Engineering"],
+			"date":"September-2013 - Present",
 			"url":" "
 		}
 	],
@@ -49,31 +49,31 @@ var education = {
 		{
 			"title": "Intro to Computer Science",
 			"school":"Udacity",
-			"dates": "03/2016 - Present",
+			"date": "March-2016 - Present",
 			"url":"https://www.udacity.com/course/intro-to-computer-science--cs101"
 		},
 		{
 			"title":"Front-end Developer Nanodegree",
 			"school":"Udacity",
-			"dates":"03/2016 - Present",
+			"date":"March-2016 - Present",
 			"url": "https://www.udacity.com/degrees/front-end-web-developer-nanodegree--nd001"
 		}
 	],
 	"display": function(){
-	for(school in education.schools){
+	for(var school in education.schools){
 		$("#education").append(HTMLschoolStart);
 		var formattedSchool = HTMLschoolName.replace("%data%",education.schools[school].name);
 		formattedSchool += HTMLschoolLocation.replace("%data%",education.schools[school].location);
 		formattedSchool += HTMLschoolDegree.replace("%data%",education.schools[school].degree);
-		formattedSchool += HTMLschoolDates.replace("%data%",education.schools[school].dates);
+		formattedSchool += HTMLschoolDates.replace("%data%",education.schools[school].date);
 		formattedSchool += HTMLschoolMajor.replace("%data%",education.schools[school].major);
 		$(".education-entry:last").append(formattedSchool);
 	}
 	$(".education-entry:last").append(HTMLonlineClasses);
-	for(course in education.onlineCourses){
+	for(var course in education.onlineCourses){
 		var formattedCourses = HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
 		formattedCourses += HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
-		formattedCourses += HTMLonlineDates.replace("%data%",education.onlineCourses[course].dates);
+		formattedCourses += HTMLonlineDates.replace("%data%",education.onlineCourses[course].date);
 		formattedCourses += HTMLonlineURL.replace("#",education.onlineCourses[course].url).replace("%data%",education.onlineCourses[course].url);
 		$(".education-entry:last").append(formattedCourses);
 	}
@@ -86,12 +86,12 @@ var work = {
 			"employer":"Lorem Ipsum",
 			"title":"Lorem Ipsum",
 			"location":"Taba",
-			"dates": "2016",
+			"dates": "DEC-2016",
 			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed dignissim orci. "
 		}
 	],
 	"display" : function() {
-	for(job in work.jobs){
+	for(var job in work.jobs){
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
@@ -108,13 +108,13 @@ var projects = {
 	"projects":[
 		{
 			"title":"Lorem Ipsum",
-			"dates":"2016",
+			"dates":"DEC-2016",
 			"description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed dignissim orci. Vivamus euismod ligula justo, nec ultrices dui tempor sit amet. Donec vel pharetra lectus. Ut tempus mi non iaculis bibendum. Curabitur vitae varius risus. Aliquam ullamcorper erat id purus ornare, vitae auctor tellus suscipit. Fusce feugiat porttitor arcu, dictum fermentum ipsum bibendum sit amet. Curabitur volutpat dictum justo, nec vestibulum erat ultrices pellentesque. Suspendisse vel augue dignissim, fermentum enim id, sagittis neque.",
-			"images":"images/project.png"
+			"images":["images/project.png"]
 		}
 	],
 	"display": function(){
-	for(project in projects.projects){
+	for(var project in projects.projects){
 		$("#projects").append(HTMLprojectStart);
 		var formattedTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
 		$(".project-entry:last").append(formattedTitle);
